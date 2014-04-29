@@ -1,0 +1,79 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<title>Calcula_IMC</title>
+<link href="jquery.mobile-1.0.min.css" rel="stylesheet" type="text/css"/>
+<script src="jquery-1.6.4.min.js" type="text/javascript"></script>
+<script src="jquery.mobile-1.0.min.js" type="text/javascript"></script>
+<script language="javascript">
+var peso=0, estatura=0, imc=0, m=0;
+function masaCor(){
+	peso=document.getElementById("txtPeso").value; 
+	peso=parseFloat(document.getElementById("txtPeso").value) 
+	estatura=document.getElementById("txtEstatura").value; 
+	estatura=parseFloat(document.getElementById("txtEstatura").value) 
+	m=(estatura)*(estatura);
+	imc=peso/m;
+	if(imc<18){ alert("Peso bajo.Necesario valorar signos de desnutricion"); 
+	document.getElementById("txtResul").value=imc; 
+	} 
+	else { 
+	if((imc>=18)&&(imc<=29.4)) 
+	alert("Normal"); 
+	document.getElementById("txtResul").value=imc; 
+	} 
+	if((imc>=25)&&(imc<=26.9)){ 
+	alert("Sobrepeso"); 
+	document.getElementById("txtResul").value=imc; 
+	} 
+	if(imc==27){ 
+	alert("Obesidad"); 
+	document.getElementById("txtResul").value=imc; 
+	} 
+	if((imc>=28)&&(imc<=29)){ 
+	alert("Obesidad grado I.Riesgo relativo alto para desarrollar enfermedades cardiovasculares"); 
+	document.getElementById("txtResul").value=imc; 
+	} 
+	if((imc>=30)&&(imc<=39.9)){ 
+	alert("Obesidad grado II.Riesgo relativo muy alto para el desarrollo de enfermedades cardiovasculares"); 
+	document.getElementById("txtResul").value=imc; 
+	} 
+	if(imc>=40){ 
+	alert("Obesidad grado III Extrema o Morbida.Riesgo relativo extremadamente alto para el desarrollo de enfermedades cardiovasuclare"); 
+	document.getElementById("txtResul").value=imc; 
+	} 
+	}
+</script>
+</head> 
+<body> 
+
+<div data-role="page" id="page">
+	<div data-role="header">
+		<h1>Indice de Masa Corporal</h1>
+	</div>
+<div>
+  <div data-role="fieldcontain">
+    <label for="textinput">Peso (KG.):</label>
+    <input type="text" name="txtPeso" id="txtPeso" value=""  />
+    <div data-role="fieldcontain">
+      <label for="textinput2">Estatura (MTS.)</label>
+      <input type="text" name="txtEstatura" id="txtEstatura" value=""  />
+    </div>
+    <div data-role="fieldcontain">
+      <label for="textinput3">Tu IMC es:</label>
+      <input type="text" name="txtResul" id="txtResul" value="0" disabled="disabled"  />
+    </div>
+    <button onClick="masaCor()">Calcular</button>
+    
+  </div>
+
+</div>
+	<div data-role="footer">
+		<h4>Autor:Miriam Estrada</h4>
+	</div>
+</div>
+
+
+</body>
+</html>
